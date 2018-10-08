@@ -39,6 +39,7 @@ const client = ({ apiKey, baseUrl }) => {
     charity: {
       list: q => charityClient.list(clientOptions)(q),
       count: q => charityClient.count(clientOptions)(q),
+      aggregate: q => charityClient.aggregate(clientOptions)(q),
     },
     apiKey: {
       get: q => apiKeyClient.get(clientOptions)(q),
