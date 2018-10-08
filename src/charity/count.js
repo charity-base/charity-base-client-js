@@ -10,6 +10,9 @@ const ALLOWED_KEYS = [
   'causes.id',
   'beneficiaries.id',
   'operations.id',
+  'funders',
+  'hasGrant',
+  'grantDateRange',
 ]
 
 const count = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
