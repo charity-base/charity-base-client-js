@@ -25,7 +25,7 @@ const agg = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
   const queryString = stringifyQuery(query, ALLOWED_KEYS)
 
   const url = `${baseUrl}/${apiVersion}/aggregate-charities/?${queryString}`
-  const options = {}
+  const options = { method: 'GET' }
   
   return fetchJSON(url, options, query.accessToken)
 }

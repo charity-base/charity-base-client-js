@@ -25,7 +25,7 @@ const list = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
   const queryString = stringifyQuery(query, ALLOWED_KEYS)
 
   const url = `${baseUrl}/${apiVersion}/charities/?${queryString}`
-  const options = {}
+  const options = { method: 'GET' }
   
   return fetchJSON(url, options, query.accessToken)
 }
