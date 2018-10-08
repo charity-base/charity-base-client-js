@@ -1,6 +1,6 @@
 {
   "name": "charity-base",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A javascript client library for using charity-base-api",
   "main": "./build/index.js",
   "scripts": {
