@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "core-js": "^2.5.7",
     "semver": "^5.5.1"
   }
 }
