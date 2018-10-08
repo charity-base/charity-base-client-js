@@ -1,0 +1,41 @@
+{
+  "name": "charity-base",
+  "version": "1.0.0",
+  "description": "A javascript client library for using charity-base-api",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "rm -rf build && babel src --out-dir build",
+    "prepublish": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charity-base/charity-base-client-js.git"
+  },
+  "keywords": [
+    "charitybase",
+    "charity",
+    "data",
+    "api",
+    "client"
+  ],
+  "author": {
+    "name": "Dan Kwiatkowski",
+    "email": "dan@charitybase.uk",
+    "url": "https://twitter.com/dan_kwiat"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charity-base/charity-base-client-js/issues"
+  },
+  "homepage": "https://github.com/charity-base/charity-base-client-js#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "semver": "^5.5.1"
+  }
+}
