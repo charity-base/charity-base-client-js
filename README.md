@@ -11,7 +11,9 @@ Log in to the [CharityBase API Portal](https://charitybase.uk/api-portal) and cr
 Search for "homeless" charities with income range £100k - £1m, sorted by descending income:
 
 ```js
-const charityBase = require('charity-base')({
+const CharityBaseClient = require('charity-base')
+
+const charityBase = new CharityBaseClient({
   apiKey: 'my-api-key'
 })
 
