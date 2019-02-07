@@ -6,6 +6,20 @@ A JavaScript client library for interacting with the CharityBase REST API.  For 
 
 Log in to the [CharityBase API Portal](https://charitybase.uk/api-portal) and create an API key.
 
+## Install
+
+With Yarn:
+
+```bash
+yarn add charity-base
+```
+
+Or npm:
+
+```bash
+npm install --save charity-base
+```
+
 ## Example
 
 Search for "homeless" charities with income range £100k - £1m, sorted by descending income:
