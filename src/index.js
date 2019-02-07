@@ -3,8 +3,6 @@ const semver = require('semver')
 const charityClient = require('./charity')
 const apiKeyClient = require('./api-key')
 
-const clientOptions = {}
-
 const validate = (version, supportedRanges) => {
   const parsedVersion = semver.valid(version)
   if (!parsedVersion) {
@@ -15,39 +13,43 @@ const validate = (version, supportedRanges) => {
   return isValid ? parsedVersion : null
 }
 
-const getApiVersion = () => {
-  return clientOptions.apiVersion
-}
-
-const setApiVersion = version => {
-  const validVersion = validate(version, config.supportedApiRanges)
-  if (!validVersion) {
-    const errMessage = `${version} not in supported API versions: ${config.supportedApiRanges.join(', ')}`
-    return Promise.reject(new Error(errMessage))
+class Client {
+  constructor({ apiKey, baseUrl }) {
+    this.config = {
+      apiKey,
+      baseUrl,
+      apiVersion: config.defaultApiVersion,
+    }
+    this.getApiVersion = this.getApiVersion.bind(this)
+    this.setApiVersion = this.setApiVersion.bind(this)
   }
-  clientOptions.apiVersion = `v${validVersion}`
-  return Promise.resolve(clientOptions.apiVersion)
-}
-
-const client = ({ apiKey, baseUrl }) => {
-  clientOptions.apiKey = apiKey
-  clientOptions.baseUrl = baseUrl || config.baseUrl
-  clientOptions.apiVersion = config.defaultApiVersion
-  return {
-    getApiVersion,
-    setApiVersion,
-    charity: {
-      list: q => charityClient.list(clientOptions)(q),
-      count: q => charityClient.count(clientOptions)(q),
-      aggregate: q => charityClient.aggregate(clientOptions)(q),
-      download: q => charityClient.download(clientOptions)(q),
-    },
-    apiKey: {
-      get: q => apiKeyClient.get(clientOptions)(q),
-      create: q => apiKeyClient.create(clientOptions)(q),
-      remove: q => apiKeyClient.remove(clientOptions)(q),
+  getApiVersion() {
+    return this.config.apiVersion
+  }
+  setApiVersion(version) {
+    const validVersion = validate(version, config.supportedApiRanges)
+    if (!validVersion) {
+      const errMessage = `${version} not in supported API versions: ${config.supportedApiRanges.join(', ')}`
+      return Promise.reject(new Error(errMessage))
+    }
+    this.config.apiVersion = `v${validVersion}`
+    return Promise.resolve(this.config.apiVersion)
+  }
+  get charity() {
+    return {
+      list: q => charityClient.list(this.config)(q),
+      count: q => charityClient.count(this.config)(q),
+      aggregate: q => charityClient.aggregate(this.config)(q),
+      download: q => charityClient.download(this.config)(q),
+    }
+  }
+  get apiKey() {
+    return {
+      get: q => apiKeyClient.get(this.config)(q),
+      create: q => apiKeyClient.create(this.config)(q),
+      remove: q => apiKeyClient.remove(this.config)(q),
     }
   }
 }
 
-module.exports = client
+module.exports = Client
