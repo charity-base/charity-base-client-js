@@ -11,6 +11,9 @@ const ALLOWED_KEYS = [
   'causes.id',
   'beneficiaries.id',
   'operations.id',
+  'funders',
+  'hasGrant',
+  'grantDateRange',
   'sort',
   'limit',
   'skip',
@@ -22,7 +25,7 @@ const list = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
   const queryString = stringifyQuery(query, ALLOWED_KEYS)
 
   const url = `${baseUrl}/${apiVersion}/charities/?${queryString}`
-  const options = {}
+  const options = { method: 'GET' }
   
   return fetchJSON(url, options, query.accessToken)
 }

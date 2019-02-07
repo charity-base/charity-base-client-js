@@ -1,12 +1,6 @@
 # CharityBase Client Library (JavaScript)
 
-A JavaScript client library for interacting with the CharityBase REST API.
-
-## Installation
-
-```
-npm install --save charity-base
-```
+A JavaScript client library for interacting with the CharityBase REST API.  For full documentation see the [CharityBase Docs](https://charity-base.github.io/charity-base-docs).
 
 ## Authorisation
 
@@ -17,7 +11,9 @@ Log in to the [CharityBase API Portal](https://charitybase.uk/api-portal) and cr
 Search for "homeless" charities with income range £100k - £1m, sorted by descending income:
 
 ```js
-const charityBase = require('charity-base')({
+const CharityBaseClient = require('charity-base')
+
+const charityBase = new CharityBaseClient({
   apiKey: 'my-api-key'
 })
 
@@ -38,3 +34,5 @@ charityBase.charity.list({
 ```
 
 (Remember to replace `my-api-key` with your actual key, copied from the [CharityBase API Portal](https://charitybase.uk/api-portal))
+
+## [Docs](https://charity-base.github.io/charity-base-docs)

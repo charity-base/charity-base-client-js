@@ -24,13 +24,33 @@ const authOptions = (options, accessToken) => {
   }
 }
 
-const fetchJSON = (url, options={}, accessToken) => {
+const authFetch = (url, options, accessToken) => {
   return fetch(
     url,
     authOptions(options, accessToken),
   )
   .then(handleFetchErrors)
+}
+
+const fetchJSON = (url, options, accessToken) => {
+  return authFetch(
+    url,
+    options,
+    accessToken,
+  )
   .then(res => res.json())
 }
 
-module.exports = fetchJSON
+const fetchBlob = (url, options, accessToken) => {
+  return authFetch(
+    url,
+    options,
+    accessToken,
+  )
+  .then(res => res.blob())
+}
+
+module.exports = {
+  fetchJSON,
+  fetchBlob,
+}

@@ -1,11 +1,11 @@
 {
   "name": "charity-base",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "A javascript client library for using charity-base-api",
   "main": "./build/index.js",
   "scripts": {
     "build": "rm -rf build && babel src --out-dir build",
-    "prepublish": "npm run build",
+    "prepublish": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "core-js": "^2.5.7",
     "semver": "^5.5.1"
   }
 }

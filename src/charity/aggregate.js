@@ -13,17 +13,21 @@ const ALLOWED_KEYS = [
   'funders',
   'hasGrant',
   'grantDateRange',
+  'aggGeoBounds',
+  'aggGeoPrecision',
+  'aggGrantDateInterval',
+  'aggTypes',
 ]
 
-const count = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
+const agg = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
 
   query.apiKey = apiKey
   const queryString = stringifyQuery(query, ALLOWED_KEYS)
 
-  const url = `${baseUrl}/${apiVersion}/count-charities/?${queryString}`
+  const url = `${baseUrl}/${apiVersion}/aggregate-charities/?${queryString}`
   const options = { method: 'GET' }
   
   return fetchJSON(url, options, query.accessToken)
 }
 
-module.exports = count
+module.exports = agg
