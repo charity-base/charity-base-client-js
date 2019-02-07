@@ -1,4 +1,4 @@
-const { fetchBlob, stringifyQuery } = require('../helpers')
+const { fetchJSON, stringifyQuery } = require('../helpers')
 
 const ALLOWED_KEYS = [
   'apiKey',
@@ -32,7 +32,7 @@ const download = ({ baseUrl, apiVersion, apiKey }) => (query={}) => {
     },
   }
   
-  return fetchBlob(url, options, accessToken)
+  return fetchJSON(url, options, accessToken)
 }
 
 module.exports = download

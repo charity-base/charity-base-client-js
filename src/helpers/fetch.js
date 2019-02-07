@@ -41,16 +41,6 @@ const fetchJSON = (url, options, accessToken) => {
   .then(res => res.json())
 }
 
-const fetchBlob = (url, options, accessToken) => {
-  return authFetch(
-    url,
-    options,
-    accessToken,
-  )
-  .then(res => res.blob())
-}
-
 module.exports = {
   fetchJSON,
-  fetchBlob,
 }
