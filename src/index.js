@@ -16,8 +16,8 @@ const validate = (version, supportedRanges) => {
 class Client {
   constructor({ apiKey, baseUrl }) {
     this.config = {
-      apiKey,
-      baseUrl,
+      apiKey: apiKey,
+      baseUrl: baseUrl || config.baseUrl,
       apiVersion: config.defaultApiVersion,
     }
     this.getApiVersion = this.getApiVersion.bind(this)
