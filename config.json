@@ -1,7 +1,7 @@
 {
   "baseUrl": "https://charitybase.uk/api",
-  "defaultApiVersion": "v4.2.0",
+  "defaultApiVersion": "v4",
   "supportedApiRanges": [
-    "v4.2.x"
+    "v4.x.x"
   ]
 }
