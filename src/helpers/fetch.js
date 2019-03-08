@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 const handleFetchErrors = res => {
   if (!res.ok) {
     return res.json()
