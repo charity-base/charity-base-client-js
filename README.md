@@ -20,6 +20,33 @@ Or npm:
 npm install --save charity-base
 ```
 
+This package makes use of the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) so be aware of the following:
+
+### Client Side
+
+Modern browsers have `fetch` in the window scope so you don't need to do anything however we recommend installing the [fetch polyfill](https://github.com/github/fetch) to support older browsers:
+
+```bash
+yarn add whatwg-fetch
+```
+
+### Server Side
+
+If you're using `charity-base` from the backend you'll need to install [node-fetch](https://www.npmjs.com/package/node-fetch):
+
+```bash
+yarn add node-fetch
+```
+
+And import it like so:
+
+```js
+// server_code.js
+const fetch = require('node-fetch')
+const CharityBaseClient = require('charity-base')
+...
+```
+
 ## Example
 
 Search for "homeless" charities with income range £100k - £1m, sorted by descending income:
