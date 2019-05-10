@@ -1,6 +1,9 @@
 # CharityBase Client Library (JavaScript)
 
-A JavaScript client library for interacting with the CharityBase REST API.  For full documentation see the [CharityBase Docs](https://charity-base.github.io/charity-base-docs).
+A JavaScript client library for interacting with the deprecated CharityBase v4 REST API.
+
+**The old CharityBase REST API is deprecated and will stop working in Q3 2019.** We recommend using an Apollo client library with the [CharityBase GraphQL API](https://charitybase.uk/api-portal) instead.
+
 
 ## Authorisation
 
@@ -76,4 +79,4 @@ charityBase.charity.list({
 
 (Remember to replace `my-api-key` with your actual key, copied from the [CharityBase API Portal](https://charitybase.uk/api-portal))
 
-## [Docs](https://charity-base.github.io/charity-base-docs)
+## [Docs](https://charitybase.uk/docs/v4/)
